@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Escolha Sim ou Não</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+    .container {
+        text-align: center;
+    }
+    .button {
+        padding: 10px 20px;
+        margin: 10px;
+        cursor: pointer;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+    }
+    .button:hover {
+        background-color: #0056b3;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Aceita namorar comigo?</h2>
+    <button class="button yes">Sim</button>
+    <button class="button no">Não</button>
+    <p id="message"></p>
+</div>
+
+<script>
+    const yesButton = document.querySelector('.yes');
+    const noButton = document.querySelector('.no');
+    const messageElement = document.getElementById('message');
+
+    function moveButton() {
+        const randomX = Math.random() * (window.innerWidth - 100);
+        const randomY = Math.random() * (window.innerHeight - 50);
+        noButton.style.position = 'absolute';
+        noButton.style.left = randomX + 'px';
+        noButton.style.top = randomY + 'px';
+    }
+
+    function displayMessage() {
+        messageElement.textContent = "Que bom que escolheu o sim, eu já ia entrar em depressão se você apertasse no não";
+    }
+
+    yesButton.addEventListener('click', displayMessage);
+    noButton.addEventListener('mouseenter', moveButton);
+</script>
+
+</body>
+</html>
